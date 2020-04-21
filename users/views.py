@@ -33,6 +33,3 @@ def userSignIn(request):
                 return HttpResponseForbidden()
     except Exception as e:
         return HttpResponseServerError(e)
-
-
-
