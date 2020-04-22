@@ -1,0 +1,29 @@
+# .travis.yml
+
+language: python
+branches:
+  only:
+    - master
+
+#python:
+#    - "3.5"
+#    - "3.6"
+#
+#dist: trusty
+#sudo: rquired
+#
+#env:
+#    - DJANGO_VERSION==2.0
+#
+#
+#install:
+#    - pip3 install -q Django=$DJANGO_VERSION
+#    - pip3 install -q -r requirements.txt
+#
+#script:
+#    - cd for_hg
+#    - touch problem/secrets.py
+#    - echo "AWS_ACCESS_KEY_ID=''" >> problem/secrets.py
+#    - echo "AWS_SECRET_ACCESS_KEY=''" >> problem/secrets.py
+#    - python3 manage.py migrate
+#    - python3 -m pytest -n 3 --cov-config .coveragerc --cov=.
