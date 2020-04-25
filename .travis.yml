@@ -8,6 +8,10 @@ python:
   - "3.6"
 install:
   - pip install -r requirements.txt
+before_deploy:
+ - zip -r latest *
+ - mkdir -p deploy
+ - mv latest.zip deploy/latest.zip
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # 사용하기 전에 Travis-ci 에서 setting의 환경변수로 설정한 값. AWS IAM 에서 설정한 Access Key, Secret
@@ -16,7 +20,7 @@ deploy:
     region: ap-northeast-2 # S3 resion
     acl: private
     local_dir: deploy # deploy 디렉터리에 있는 파일을 S3로 업로드 하겠다는 뜻
-
+    skip_cleanup: true
 #python:
 #    - "3.5"
 #    - "3.6"
