@@ -14,7 +14,6 @@ deploy:
     secret_access_key: $AWS_ASECRET_KEY
     bucket: phas-django
     region: ap-northeast-2 # S3 resion
-    skip_cleanup: true
     acl: private
     local_dir: deploy # deploy 디렉터리에 있는 파일을 S3로 업로드 하겠다는 뜻
 
