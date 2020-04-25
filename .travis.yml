@@ -8,10 +8,7 @@ python:
   - "3.6"
 install:
   - pip install -r requirements.txt
-before_script:
-  - python manage.py makemigrations
 script:
-  - python manage.py migrate
   - zip -r latest *
   - mkdir -p deploy
   - mv latest.zip deploy/latest.zip
