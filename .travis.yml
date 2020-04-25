@@ -7,7 +7,7 @@ branches:
 python:
   - "3.6"
 install:
-  - pip install django 3.0.5
+  - pip install django~=3.0.5
   - pip install bcrypt
 script: python manage.py runserver 0.0.0.0:80
 
