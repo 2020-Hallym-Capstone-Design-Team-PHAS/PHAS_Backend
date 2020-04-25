@@ -7,9 +7,7 @@ branches:
 python:
   - "3.6"
 install:
-  - pip install django~=3.0.5
-    pip install bcrypt
-    pip install psycopg2
+  - pip install -r requirements.txt
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # 사용하기 전에 Travis-ci 에서 setting의 환경변수로 설정한 값. AWS IAM 에서 설정한 Access Key, Secret
