@@ -14,6 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MEDIA_ROOT = os.path.join(BASE_DIR, 'heartbeat_data')
 
 
 # Quick-start development settings - unsuitable for production
@@ -31,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'heartbeat.apps.HeartbeatConfig',
     'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -80,7 +82,7 @@ DATABASES = {
         'NAME': 'phas',
         'USER' : 'postgres',
         'PASSWORD' : 'persona33',
-        'HOST' : '172.17',
+        'HOST' : 'localhost',
         'PORT' : '5432'
     }
 }
