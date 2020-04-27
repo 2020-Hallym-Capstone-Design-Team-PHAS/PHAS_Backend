@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+        db:
+                image: postgres
+                volumes:
+                        - ./docker/data:/var/lib/postgresql/data
+                environment:
+                        - POSTGRES_DB=phas
+                        - POSTGRES_USER=postgres
+                        - POSTGRES_PASSWORD=persona33
+                        - POSTGRES_INITDB_ARGS=--encoding=UTF-8
+                ports:
+                        - "5432:5432"
+
+        django:
+                links:
+                        - db:db
+                build:
+                        context: .
+                        dockerfile: ./Dockerfile
+                environment:
+                        - DJANGO_DEBUG=True
+                        - DJANGO_DB_HOST=postgres
+                        - DJANGO_DB_PORT=5432
+                        - DJANGO_DB_NAME=phas
+                        - DJANGO_DB_USERNAME=postgres
+                        - DJANGO_DB_PASSWORD=persona33
+                        - DJANGO_SECRET_KEY=dev_secret_key
+                ports:
+                        - "80:80"
+                volumes:
+                        - .:/app
