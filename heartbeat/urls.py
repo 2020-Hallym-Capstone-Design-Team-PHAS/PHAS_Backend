@@ -2,6 +2,6 @@ from django.urls import path
 from heartbeat.views import *
 
 urlpatterns = [
-    path("save", saveAudioFile, name = "save Audio File")
+    path("save", save_audio_file, name = "save Audio File")
 
 ]
