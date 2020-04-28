@@ -1,9 +1,11 @@
 from django.forms import ModelForm
-from django import forms
+from django.forms import *
 from heartbeat.models import *
+from django.views.decorators.csrf import csrf_exempt
 
 
-class Form(forms.ModelForm):
+@csrf_exempt
+class HeartBeatForm(ModelForm):
     class Meta:
-        model = heartbeat
-        fields = ['user_id', 'dog_idx']
+        model = Heartbeat
+        fields = ('user_id', 'dog_name')
