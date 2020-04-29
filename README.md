@@ -65,9 +65,9 @@ travis-ci
 *   [x] __[Travis-ci](travis-ci.org)를 활용한 CI 구현 완료__
 
 
-### 사용법
-1.  `sudo apt-get install docker`
-2.  `sudo apt-get install docker-composer`
-3.  `docker-composer build`
-4.  `docker-composer up -d` 
-   *    `background`에서 실행하고 싶다면 `-d` 옵션 추가. 아니면 빼도 상관없음.
+### 실행 방법
+*   `sudo apt-get install docker`
+*   `sudo apt-get install docker-composer`
+*   `docker-composer build`
+*   `docker-composer up -d` 
+    *   `background`에서 실행하고 싶다면 `-d` 옵션 추가. 아니면 빼도 상관없음.
