@@ -14,7 +14,7 @@ def userRegist(request):
         if request.method == 'POST':
             json_data = json.loads(request.body)
             hashed_password = bcrypt.hashpw(json_data['user_password'].encode('utf-8'), bcrypt.gensalt()).decode()
-            user_data = UserInfo(user_name=json_data['user_name'], user_password=hashed_password, user_id=json_data['user_id'], create_date=date.today())
+            user_data = UserInfo(user_name=json_data['user_name'], user_password=hashed_password, user_id=json_data['user_id'], create_data=date.today())
             user_data.save()
             return HttpResponse()
         else:
