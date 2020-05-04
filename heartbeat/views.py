@@ -11,7 +11,8 @@ from datetime import datetime
 def save_audio_file(request):
     try:
         if request.method == "POST":
-            audio_data = HeartBeatForm(request.POST)
+            json_data = json.dumps(request.body)
+            audio_data = HeartBeatForm(json_data)
             if audio_data.is_valid() and request.FILES['audio_file']:
                 obj = audio_data.save(commit=False)
                 obj.audio_file = request.FILES['audio_file']
