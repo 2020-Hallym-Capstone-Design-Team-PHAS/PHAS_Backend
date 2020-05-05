@@ -35,8 +35,12 @@ def dogInfo_user(request):#사용자 보유 애완동물 목록
             dog_json = json.loads(request.body)
             s_data = DogInfo.objects.filter(Q(user_id=dog_json['user_id']))
             if s_data:
+                namedict = {'dog_name' : []}
+                for name in s_data.values('dog_name'):
+                    namedict['dog_name'].append(name['dog_name'])
 
-                return HttpResponse(s_data.values('dog_name'))
+                #return HttpResponse(json.dumps(s_data.values('dog_name')))
+                return HttpResponse(json.dumps(namedict))#키 = dog_name 값은 강아지 이름으로 구성된 리스트
             else:
                 return HttpResponse(json.dumps({"result_code" : 0}))
         else:
@@ -61,7 +65,7 @@ def dogInfo_dog(request):#사용자 보유 애완동물 상세정보
         return HttpResponse(e, " : Error 입니다.")
 
 @csrf_exempt
-def dogInfo_del(request):#사용자 보유 애완동물 상세정보
+def dogInfo_del(request):#사용자 보유 애완동물 정보 삭제
     try:
         if request.method == 'POST':
             dog_json = json.loads(request.body)
