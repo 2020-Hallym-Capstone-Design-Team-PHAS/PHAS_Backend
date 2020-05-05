@@ -6,6 +6,7 @@ from .forms import DogForm
 from django.views.decorators.csrf import csrf_exempt
 from users.models import UserInfo as us
 import json
+from django.core.serializers.json import DjangoJSONEncoder
 # Create your views here.
 
 @csrf_exempt
@@ -55,7 +56,7 @@ def dogInfo_dog(request):#사용자 보유 애완동물 상세정보
             dog_json = json.loads(request.body)
             s_data = DogInfo.objects.filter(Q(user_id=dog_json['user_id']) & Q(dog_name=dog_json['dog_name']))
             if s_data:
-                return HttpResponse(s_data.values())
+                return HttpResponse(json.dumps(list(s_data.values()), cls=DjangoJSONEncoder))
             else:
                 return HttpResponse("해당 애완동물 정보 없음")
         else:
