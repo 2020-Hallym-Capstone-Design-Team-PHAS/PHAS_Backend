@@ -14,6 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MEDIA_ROOT = os.path.join(BASE_DIR, 'heartbeat_data')
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,13 +26,14 @@ SECRET_KEY = '8b3*8)sztf!l&0hr55z9^ac4%=gpkd@ep!o*1bfv%zii%!8^4n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = "*"
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'dogs.apps.DogsConfig',
+    'heartbeat.apps.HeartbeatConfig',
     'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -80,8 +82,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'phas',
         'USER' : 'postgres',
-        'PASSWORD' : 'z1c3a4!@#',
-        'HOST' : 'localhost',
+        'PASSWORD' : 'persona33',
+        'HOST' : 'db',
         'PORT' : '5432'
     }
 }
