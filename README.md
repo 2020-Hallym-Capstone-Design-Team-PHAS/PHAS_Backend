@@ -11,57 +11,13 @@ postgresql 12.04
 travis-ci
 ```
 
-#### Directory 구조
-```
-├── docker
-│   └── data
-├── Docker
-├── docker-compose.yml
-├── Dockerfile
-├── heartbeat
-│   ├── admin.py
-│   ├── apps.py
-│   ├── forms.py
-│   ├── __init__.py
-│   ├── migrations
-│   ├── models.py
-│   ├── __pycache__
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── LICENSE
-├── manage.py
-├── phas_server
-│   ├── asgi.py
-│   ├── __init__.py
-│   ├── __pycache__
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── README.md
-├── requirements.txt
-├── start
-└── users
-    ├── admin.py
-    ├── apps.py
-    ├── forms.py
-    ├── __init__.py
-    ├── migrations
-    ├── models.py
-    ├── __pycache__
-    ├── tests.py
-    ├── urls.py
-    └── views.py
-
-```
-
 ### API 구현 현황
-![image](https://user-images.githubusercontent.com/29707967/80556009-1b924480-8a0d-11ea-9ccc-6970f3f1e8c7.png)
+![image](https://user-images.githubusercontent.com/29707967/82773860-1c888b80-9e7e-11ea-881e-a66bb5f8ad3f.png)
 [PHAS API](https://www.notion.so/95e79c15df5640fa875fb6f04c856ce1)
 
 ### 개발 현황
 *   [x] __docker, docker-compose 를 활용해 django, postgresql 컨테이너 연동 완료__
-*   [x] __django를 활용한 API 구현 50% 완료__
+*   [x] __django를 활용한 API 구현 100% 완료__
 *   [x] __[Travis-ci](travis-ci.org)를 활용한 CI 구현 완료__
 
 ### 각종 Document 및 참고 자료 사이트
