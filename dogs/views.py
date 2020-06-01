@@ -25,7 +25,7 @@ def dogRegist(request):#강아지 정보 등록
             result_data = {"result_code" : 1}
             return HttpResponse(json.dumps(result_data))
         else:
-            return HttpResponse("허용하지 않은 Http method 입니다.") #Http status 403
+            return HttpResponseNotAllowed("허용하지 않은 Http method 입니다.") #Http status 403
     except Exception as e:
         return HttpResponse(e, " : Error 입니다.")
 
@@ -42,10 +42,10 @@ def dogInfo_user(request):#사용자 보유 애완동물 목록
 
                 #return HttpResponse(json.dumps(s_data.values('dog_name')))
                 return HttpResponse(json.dumps(namedict))#키 = dog_name 값은 강아지 이름으로 구성된 리스트
-            else:
-                return HttpResponse(json.dumps({"result_code" : 0}))
+            #else:
+            #    return HttpResponseNotAllowed("허용하지 않은 Http method 입니다.") #Http status 403
         else:
-            return HttpResponse("허용하지 않은 Http method 입니다.")  # Http status 403
+            return HttpResponseNotAllowed("허용하지 않은 Http method 입니다.") #Http status 403
     except e:
         return HttpResponse(e, " : Error 입니다.")
 
@@ -58,10 +58,10 @@ def dogInfo_dog(request):#사용자 보유 애완동물 상세정보
             if s_data:
                 return HttpResponse(json.dumps(list(s_data.values()), cls=DjangoJSONEncoder))
             else:
-                return HttpResponse("해당 애완동물 정보 없음")
+                return HttpResponseNotAllowed("해당 애완동물 정보 없음")
         else:
             # diform = DogForm
-            return HttpResponse("허용하지 않은 Http method 입니다.")  # Http status 403
+            return HttpResponseNotAllowed("허용하지 않은 Http method 입니다.")  # Http status 403
     except e:
         return HttpResponse(e, " : Error 입니다.")
 
@@ -76,9 +76,9 @@ def dogInfo_del(request):#사용자 보유 애완동물 정보 삭제
                 s_data.delete()
                 return HttpResponse('삭제 완료')
             else:
-                return HttpResponse("해당 애완동물 정보 없음")
+                return HttpResponseNotAllowed("해당 애완동물 정보 없음")
         else:
             # diform = DogForm
-            return HttpResponse("허용하지 않은 Http method 입니다.")  # Http status 403
+            return HttpResponseNotAllowed("허용하지 않은 Http method 입니다.")  # Http status 403
     except e:
         return HttpResponse(e, " : Error 입니다.")
