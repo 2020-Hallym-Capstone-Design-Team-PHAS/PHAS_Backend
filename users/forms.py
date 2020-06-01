@@ -1,7 +1,10 @@
-from django.forms import ModelForm
+from django.forms import *
 from users.models import *
+from django.views.decorators.csrf import csrf_exempt
 
-class Form(ModelForm):
+
+@csrf_exempt
+class UserForm(ModelForm):
     class Meta:
         model = UserInfo
-        fields = ['user_id', 'user_password', 'user_name']
+        fields = ('user_id', 'user_password', 'user_name')
