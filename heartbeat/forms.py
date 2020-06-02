@@ -8,4 +8,4 @@ from django.views.decorators.csrf import csrf_exempt
 class HeartBeatForm(ModelForm):
     class Meta:
         model = Heartbeat
-        fields = ('user_id', 'dog_name')
+        fields = ['user_id', 'dog_name', 'audio_file']

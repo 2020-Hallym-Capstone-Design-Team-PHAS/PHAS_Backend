@@ -1,6 +1,7 @@
 from django import forms
 from .models import DogInfo
 
+
 class DogForm(forms.ModelForm):
     class Meta:
         model = DogInfo

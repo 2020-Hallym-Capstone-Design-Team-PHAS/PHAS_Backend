@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Q
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotAllowed, HttpResponseServerError
 from dogs.models import DogInfo
 from .forms import DogForm
 from django.views.decorators.csrf import csrf_exempt
@@ -27,7 +27,7 @@ def dogRegist(request):#강아지 정보 등록
         else:
             return HttpResponseNotAllowed("허용하지 않은 Http method 입니다.") #Http status 403
     except Exception as e:
-        return HttpResponse(e, " : Error 입니다.")
+        return HttpResponseServerError(e, " : Error 입니다.")
 
 @csrf_exempt
 def dogInfo_user(request):#사용자 보유 애완동물 목록
@@ -46,7 +46,7 @@ def dogInfo_user(request):#사용자 보유 애완동물 목록
             #    return HttpResponseNotAllowed("허용하지 않은 Http method 입니다.") #Http status 403
         else:
             return HttpResponseNotAllowed("허용하지 않은 Http method 입니다.") #Http status 403
-    except e:
+    except Exception as e:
         return HttpResponse(e, " : Error 입니다.")
 
 @csrf_exempt
@@ -62,7 +62,7 @@ def dogInfo_dog(request):#사용자 보유 애완동물 상세정보
         else:
             # diform = DogForm
             return HttpResponseNotAllowed("허용하지 않은 Http method 입니다.")  # Http status 403
-    except e:
+    except Exception as e:
         return HttpResponse(e, " : Error 입니다.")
 
 @csrf_exempt
@@ -80,5 +80,5 @@ def dogInfo_del(request):#사용자 보유 애완동물 정보 삭제
         else:
             # diform = DogForm
             return HttpResponseNotAllowed("허용하지 않은 Http method 입니다.")  # Http status 403
-    except e:
+    except Exception as e:
         return HttpResponse(e, " : Error 입니다.")

@@ -8,4 +8,4 @@ class Heartbeat(models.Model):
     dog_name = models.CharField(max_length=32)
     create_date = models.DateTimeField(auto_now_add=True)
     heartbeat_normal_condition = models.IntegerField(null=True)
-    audio_file = models.FileField(upload_to="heartbeat_data/")
+    audio_file = models.FileField()
