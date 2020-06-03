@@ -10,9 +10,6 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 media
-heartbeat/migrations
-dogs/migrations
-users/migrations
 venv
 
 .idea
