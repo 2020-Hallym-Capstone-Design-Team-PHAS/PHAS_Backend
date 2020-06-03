@@ -14,6 +14,7 @@ services:
                         - "5432:5432"
 
         django:
+                image: area409/phas_server:0.1
                 links:
                         - db:db
                 build:
