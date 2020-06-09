@@ -3,7 +3,9 @@ FROM python:3.6
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
        postgresql-client \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get install ffmpeg \
+    && apt-get install libsndfile-dev
 
 ADD . /app/
 WORKDIR /app
